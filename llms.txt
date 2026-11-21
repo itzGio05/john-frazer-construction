@@ -1,0 +1,15 @@
+# John Frazer Construction
+
+> Construction company in Ireland building new homes finished in natural stone, brick and render.
+
+- Phone: 087 236 7537 (+353 87 236 7537)
+- Hours: open 24 hours, as shown on the Google listing
+- Rating: 5.0 out of 5 from 6 Google reviews
+- Location: Ireland, map coordinates 53.3834, -8.2177501
+- Directions: https://www.google.com/maps/dir/?api=1&destination=53.3834%2C-8.2177501
+- Google listing: https://www.google.com/maps?cid=93692862328684487
+
+## Pages
+
+- [Home](https://itzgio05.github.io/john-frazer-construction/): about, services, photos of work, customer reviews, hours and location
+- [Privacy, cookies and terms](https://itzgio05.github.io/john-frazer-construction/privacy.html)
