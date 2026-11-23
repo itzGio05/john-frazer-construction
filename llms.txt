@@ -12,4 +12,11 @@
 ## Pages
 
 - [Home](https://itzgio05.github.io/john-frazer-construction/): services, stages of a build, recent work, questions, customer reviews
+- [New homes in Portlaoise, Co. Laois](https://itzgio05.github.io/john-frazer-construction/new-homes.html)
+- [House extensions in Portlaoise, Co. Laois](https://itzgio05.github.io/john-frazer-construction/extensions.html)
+- [Ground work in Co. Laois](https://itzgio05.github.io/john-frazer-construction/ground-work.html)
+- [Plastering in Portlaoise, Co. Laois](https://itzgio05.github.io/john-frazer-construction/plastering.html)
+- [Insurance claim building work in Co. Laois](https://itzgio05.github.io/john-frazer-construction/insurance-claims.html)
+- [Builder in Portlaoise, Co. Laois](https://itzgio05.github.io/john-frazer-construction/portlaoise.html)
+- [Builder for Mountmellick, Co. Laois](https://itzgio05.github.io/john-frazer-construction/mountmellick.html)
 - [Privacy, cookies and terms](https://itzgio05.github.io/john-frazer-construction/privacy.html)

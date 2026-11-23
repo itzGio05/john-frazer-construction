@@ -17,6 +17,7 @@
 <link rel="canonical" href="https://itzgio05.github.io/john-frazer-construction/">
 <meta name="site-kind" content="other">
 <meta name="page-type" content="service">
+<script>try{if(new URLSearchParams(location.search).get('look')==='green'||sessionStorage.getItem('look')==='green'){document.documentElement.classList.add('look-green');sessionStorage.setItem('look','green')}if(new URLSearchParams(location.search).get('look')==='brown'){document.documentElement.classList.remove('look-green');sessionStorage.removeItem('look')}}catch(e){}</script>
 <link rel="preload" as="font" type="font/woff2" href="fonts/albert-sans.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/fraunces.woff2" crossorigin>
 <link rel="stylesheet" href="assets/system.css">
@@ -63,6 +64,31 @@
 </script>
 <!-- page CSS: only what sits inside a visual -->
 <style>
+  /* second colour concept, shown with ?look=green (back with ?look=brown) */
+  html.look-green {
+    --p-bg: #efe9e0; --p-surface: #e2d9cb; --p-ink: #22261f; --p-muted: #5a5c53;
+    --p-accent: #2e5b44; --p-action: #2e5b44;
+    --p-inv-bg: #22261f; --p-inv-surface: #2e322a; --p-inv-ink: #efe9e0; --p-inv-muted: #a19e96;
+    --p-inv-accent: #efe9e0; --p-inv-accent-ink: #22261f; --p-inv-action: #efe9e0; --p-inv-action-ink: #22261f;
+    --font-display: "Albert Sans", system-ui, sans-serif; --display-tracking: -0.025em; --display-tracking-xl: -0.035em;
+  }
+  /* hero depth: the film sits behind and moves slower than the page, the headline box a little faster */
+  main > .hero--photo { overflow: clip; }
+  .hero--photo > video.hero__bg { scale: 1.14; will-change: translate; }
+  .hero--photo .hero__text { will-change: translate; }
+  /* start and finish: a draggable comparison of two photographs */
+  .ba { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-lg); overflow: hidden; background: var(--p-surface); --pos: 50%; touch-action: pan-y; }
+  .ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ba .ba__top { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .ba__line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: var(--p-bg); translate: -1px 0; pointer-events: none; }
+  .ba__line::after { content: "\2194"; position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 44px; height: 44px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--p-bg); color: var(--p-ink); font: 500 18px/1 var(--font-text); box-shadow: 0 2px 10px rgb(0 0 0 / .3); }
+  .ba input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+  .ba:focus-within .ba__line::after { outline: 2px solid var(--p-accent); outline-offset: 3px; }
+  .ba__tag { position: absolute; bottom: 12px; padding: 6px 12px; border-radius: 999px; background: var(--p-bg); color: var(--p-ink); font: 500 13px/1.2 var(--font-text); pointer-events: none; }
+  .ba__tag--a { left: 12px; } .ba__tag--b { right: 12px; }
+  .rows__name a { color: inherit; text-decoration: none; background: linear-gradient(currentColor, currentColor) left bottom / 0 1.5px no-repeat; transition: background-size .3s; }
+  .rows__name a:hover { background-size: 100% 1.5px; }
   .rows .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-body); }
   #services .frame { aspect-ratio: 1 / 1; }
   #reviews .frame { aspect-ratio: 1 / 1; }
@@ -102,7 +128,8 @@
   .facts dd { margin: 0; font-size: var(--t-lead); }
   @media (prefers-reduced-motion: reduce) {
     .sx-w, [data-sx], main .section h2::after { transition: none !important; transform: none !important; opacity: 1 !important; translate: none !important; }
-    #services .frame > .frame__img, #reviews .frame > .frame__img { scale: 1; translate: none !important; }
+    #services .frame > .frame__img, #reviews .frame > .frame__img, .hero--photo > video.hero__bg { scale: 1; translate: none !important; }
+    .hero--photo .hero__text { translate: none !important; }
   }
 </style>
 </head>
@@ -161,11 +188,11 @@
           <p>The five trades on John's own list. Prices on request.</p>
         </div>
         <ul class="rows">
-          <li><span class="rows__name">New homes<small>Two-storey houses and bungalows, from the cleared site up.</small></span></li>
-          <li><span class="rows__name">Extensions<small>Extensions and renovations to a house you already own.</small></span></li>
-          <li><span class="rows__name">Ground work<small>Sites cleared and dug out, ready for the build.</small></span></li>
-          <li><span class="rows__name">Plastering<small>External plastering, smooth beside stone and brick.</small></span></li>
-          <li><span class="rows__name">Insurance claims<small>Building work carried out under an insurance claim.</small></span></li>
+          <li><span class="rows__name"><a href="new-homes.html">New homes</a><small>Two-storey houses and bungalows, from the cleared site up.</small></span></li>
+          <li><span class="rows__name"><a href="extensions.html">Extensions</a><small>Extensions and renovations to a house you already own.</small></span></li>
+          <li><span class="rows__name"><a href="ground-work.html">Ground work</a><small>Sites cleared and dug out, ready for the build.</small></span></li>
+          <li><span class="rows__name"><a href="plastering.html">Plastering</a><small>External plastering, smooth beside stone and brick.</small></span></li>
+          <li><span class="rows__name"><a href="insurance-claims.html">Insurance claims</a><small>Building work carried out under an insurance claim.</small></span></li>
         </ul>
       </div>
       <figure class="frame frame--photo span-6 start-7"><img class="frame__img" data-depth="0.06" src="media/stonework-detail.webp" alt="Coursed stonework with red brick around a first-floor window" width="1100" height="825" loading="lazy" data-source="client" data-subject="stone and brick gable close up"></figure>
@@ -215,6 +242,27 @@
     </div>
   </section>
 
+  <section class="section" id="start-finish" aria-labelledby="sf-h">
+    <div class="wrap grid grid--top">
+      <div class="span-5">
+        <div class="section-head">
+          <h2 id="sf-h">Start and finish of a build</h2>
+          <p>Drag across the picture: a site being dug out, and a house handed over. The photographs are from two separate posts on John's Facebook page.</p>
+        </div>
+        <p><a class="link" href="ground-work.html">See ground work</a> &nbsp; <a class="link" href="new-homes.html">See new homes</a></p>
+      </div>
+      <div class="span-7 start-6">
+        <div class="ba" id="ba">
+          <img src="media/recent-1.webp" alt="A finished white bungalow with a grey tiled roof and a detached garage" width="590" height="443" loading="lazy" data-source="client" data-subject="finished bungalow">
+          <img class="ba__top" src="media/ground-2.webp" alt="An excavator digging out a cleared site" width="590" height="443" loading="lazy" data-source="client" data-subject="ground work">
+          <span class="ba__line" aria-hidden="true"></span>
+          <span class="ba__tag ba__tag--a" aria-hidden="true">Site dug out</span><span class="ba__tag ba__tag--b" aria-hidden="true">House finished</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Slide between the site being dug out and the finished house">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="questions" aria-labelledby="questions-h">
     <div class="wrap grid grid--top">
       <div class="span-5">
@@ -244,7 +292,7 @@
       <div class="span-6">
         <div class="section-head">
           <h2 id="reviews-h">Reviews on Google</h2>
-          <p>Rated 5.0 from 6 reviews, quoted as they appear on the listing. <a class="link" href="https://www.google.com/search?q=John+Frazer+Construction+reviews" target="_blank" rel="noopener">Read all six reviews on Google</a></p>
+          <p>Rated 5.0 from 6 reviews, quoted as they appear, with one comment from Facebook. <a class="link" href="https://www.google.com/search?q=John+Frazer+Construction+reviews" target="_blank" rel="noopener">Read all six reviews on Google</a></p>
         </div>
         <figure class="quote">
           <blockquote>“I would highly recommend John Frazer. He is fantastic to deal with. Very professional service and communication throughout the build. He was extremely knowledgeable and was able to give us advice on different elements of the construction …”</blockquote>
@@ -253,6 +301,7 @@
         <ul class="rows">
           <li><span class="rows__name">“Great staff with great skills.”<small>Sean Cooney, Local Guide</small></span></li>
           <li><span class="rows__name">“Positive: Responsiveness, Quality, Professionalism, Value”<small>Aoife Reams</small></span></li>
+          <li><span class="rows__name">“Great work as always John”<small>Shane N., comment on the Facebook page</small></span></li>
         </ul>
       </div>
       <figure class="frame frame--photo span-6 start-7"><img class="frame__img" data-depth="-0.05" src="media/house-stone-brick.webp" alt="A two-storey house with stone gables, red brick surrounds and a red front door" width="1600" height="1200" loading="lazy" data-source="client" data-subject="stone and brick house"></figure>
@@ -276,7 +325,7 @@
           <p class="footer__lede">Building contractor in Portlaoise, Co. Laois. Also trading as John Frazer Building Contractor.</p>
         </div>
         <div class="span-2 start-7 footer__col"><h3>Page</h3><ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#recent">Recent</a></li><li><a href="#questions">Questions</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>More</h3><ul><li><a href="https://www.facebook.com/JohnFrazerConstruction/" target="_blank" rel="noopener">Facebook page</a></li><li><a href="mailto:johnfrazerconstruction@gmail.com">Email John</a></li><li><a href="llms.txt">Facts for AI assistants</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>More</h3><ul><li><a href="portlaoise.html">Builder in Portlaoise</a></li><li><a href="mountmellick.html">Builder for Mountmellick</a></li><li><a href="https://www.facebook.com/JohnFrazerConstruction/" target="_blank" rel="noopener">Facebook page</a></li><li><a href="mailto:johnfrazerconstruction@gmail.com">Email John</a></li><li><a href="llms.txt">Facts for AI assistants</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Legal</h3><ul><li><a href="privacy.html">Privacy and cookies</a></li><li><a href="privacy.html#terms">Terms of use</a></li></ul></div>
       </div>
       <div class="footer__legal">
@@ -308,7 +357,10 @@
   if (reduce.matches || (navigator.connection && navigator.connection.saveData)) { v.removeAttribute('autoplay'); v.pause(); }
   b.addEventListener('click', function () { if (v.paused) v.play().catch(function () {}); else v.pause(); });
   v.addEventListener('play', sync); v.addEventListener('pause', sync); sync();
-  var hero = null, layers = [];
+  var hero = v.parentElement, layers = [{ el: v, root: hero, d: 0.16 }];
+  var box = hero.querySelector('.hero__text'); if (box) layers.push({ el: box, root: hero, d: -0.07 });
+  var ba = document.getElementById('ba');
+  if (ba) { var rng = ba.querySelector('input'); rng.addEventListener('input', function () { ba.style.setProperty('--pos', rng.value + '%'); }); }
   [].forEach.call(document.querySelectorAll('img[data-depth]'), function (el) { layers.push({ el: el, root: el.parentElement, d: parseFloat(el.dataset.depth) }); });
   var ticking = false;
   function update() {
