@@ -137,6 +137,8 @@
   .call-john__text b { font: 500 16px/1.25 var(--font-text); }
   .call-john__text small { font: 400 14px/1.3 var(--font-text); opacity: .85; letter-spacing: .02em; }
   @media (max-width: 639px) { .hero-actions { gap: var(--s-3); } .call-john { width: 100%; } }
+  #quote .field label .muted { font-weight: 400; }
+  #quote .field textarea { min-height: 96px; }
   .facts { display: grid; gap: var(--s-4); margin-top: var(--s-6); }
   .facts dt { font: 500 var(--t-label)/1.3 var(--font-text); color: var(--muted); }
   .facts dd { margin: 0; font-size: var(--t-lead); }
@@ -167,8 +169,8 @@
     <nav class="nav__links" aria-label="Main">
       <div class="nav__item"><a class="nav__link" href="#services">Services</a></div>
       <div class="nav__item"><a class="nav__link" href="#recent">Work</a></div>
-      <div class="nav__item"><a class="nav__link" href="#questions">Questions</a></div>
       <div class="nav__item"><a class="nav__link" href="#reviews">Reviews</a></div>
+      <div class="nav__item"><a class="nav__link" href="#quote">Quote</a></div>
     </nav>
     <div class="nav__actions">
       <a class="btn btn--primary" href="tel:+353872367537">Call John</a>
@@ -305,6 +307,53 @@
     </div>
   </section>
 
+  <section class="section" id="quote" aria-labelledby="quote-h">
+    <div class="wrap grid grid--top">
+      <div class="span-4">
+        <div class="section-head">
+          <h2 id="quote-h">Request a quote</h2>
+          <p>Tell John what you are planning and how to reach you. He will come back to you by phone or email.</p>
+        </div>
+        <p class="muted">Rather talk it through? <a class="link" href="tel:+353872367537">Speak to John on 087 236 7537</a></p>
+      </div>
+      <form class="form span-7 start-6" id="quote-form" action="mailto:johnfrazerconstruction@gmail.com?subject=Quote%20request%20from%20the%20website" method="post" enctype="text/plain" data-endpoint="" data-sent="Your quote request is in. John will be in touch." novalidate>
+        <div class="field"><label for="q-first">First name</label>
+          <input id="q-first" name="First name" type="text" autocomplete="given-name" required aria-describedby="q-first-err">
+          <p class="field__error" id="q-first-err" hidden>Write your first name.</p></div>
+        <div class="field"><label for="q-last">Last name</label>
+          <input id="q-last" name="Last name" type="text" autocomplete="family-name" required aria-describedby="q-last-err">
+          <p class="field__error" id="q-last-err" hidden>Write your last name.</p></div>
+        <div class="field"><label for="q-phone">Phone <span class="muted">(phone or email, at least one)</span></label>
+          <input id="q-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9+\(\)\s\-]{7,}" aria-describedby="q-phone-err">
+          <p class="field__error" id="q-phone-err" hidden>Write a phone number or an email address, so John can reply.</p></div>
+        <div class="field"><label for="q-email">Email <span class="muted">(phone or email, at least one)</span></label>
+          <input id="q-email" name="Email" type="email" autocomplete="email" inputmode="email" aria-describedby="q-email-err">
+          <p class="field__error" id="q-email-err" hidden>Write an email address with an @, or give a phone number instead.</p></div>
+        <div class="field"><label for="q-work">Type of work</label>
+          <select id="q-work" name="Type of work" required aria-describedby="q-work-err">
+            <option value="">Choose one</option><option>New home</option><option>Extension</option><option>Renovation</option><option>Ground work</option><option>Plastering</option><option>Insurance claim</option><option>Something else</option>
+          </select>
+          <p class="field__error" id="q-work-err" hidden>Choose the type of work.</p></div>
+        <div class="field"><label for="q-town">Town or area of the site</label>
+          <input id="q-town" name="Town or area" type="text" autocomplete="address-level2" aria-describedby="q-town-err">
+          <p class="field__error" id="q-town-err" hidden>Write the town or area.</p></div>
+        <div class="field"><label for="q-plans">Drawings or planning permission</label>
+          <select id="q-plans" name="Drawings or planning">
+            <option value="">Not sure yet</option><option>Have drawings and permission</option><option>Have drawings, no permission yet</option><option>Nothing yet</option><option>Not needed</option>
+          </select></div>
+        <div class="field"><label for="q-contact">Best way to reach you</label>
+          <select id="q-contact" name="Best way to reach me">
+            <option>Either</option><option>Phone call</option><option>Email</option>
+          </select></div>
+        <div class="field field--full"><label for="q-details">About the job</label>
+          <textarea id="q-details" name="About the job" rows="4" required aria-describedby="q-details-err"></textarea>
+          <p class="field__error" id="q-details-err" hidden>Write a few words about the job.</p></div>
+        <div class="btn-row"><button class="btn btn--primary" type="submit">Send quote request</button></div>
+        <p class="form__status" role="status" data-form-status></p>
+        <p class="t-small muted">Sending opens your email app with the message ready to go to John. Nothing is stored on this website. <a class="link" href="privacy.html">Privacy</a></p>
+      </form>
+    </div>
+  </section>
 </main>
 
 <footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
@@ -321,7 +370,7 @@
           <a class="nav__logo" href="#top"><span class="mark" data-mark="arc" aria-hidden="true"></span>John Frazer Construction</a>
           <p class="footer__lede">Building contractor in Portlaoise, Co. Laois. Also trading as John Frazer Building Contractor.</p>
         </div>
-        <div class="span-2 start-7 footer__col"><h3>Page</h3><ul><li><a href="#services">Services</a></li><li><a href="#recent">Work</a></li><li><a href="#start-finish">Before and after</a></li><li><a href="#questions">Questions</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
+        <div class="span-2 start-7 footer__col"><h3>Page</h3><ul><li><a href="#services">Services</a></li><li><a href="#recent">Work</a></li><li><a href="#start-finish">Before and after</a></li><li><a href="#quote">Request a quote</a></li><li><a href="#questions">Questions</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
         <div class="span-2 footer__col"><h3>More</h3><ul><li><a href="portlaoise.html">Builder in Portlaoise</a></li><li><a href="mountmellick.html">Builder for Mountmellick</a></li><li><a href="https://www.facebook.com/JohnFrazerConstruction/" target="_blank" rel="noopener">Facebook page</a></li><li><a href="mailto:johnfrazerconstruction@gmail.com">Email John</a></li><li><a href="llms.txt">Facts for AI assistants</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Legal</h3><ul><li><a href="privacy.html">Privacy and cookies</a></li><li><a href="privacy.html#terms">Terms of use</a></li></ul></div>
       </div>
@@ -356,6 +405,9 @@
   v.addEventListener('play', sync); v.addEventListener('pause', sync); sync();
   var hero = v.parentElement, layers = [{ el: v, root: hero, d: 0.16 }];
   var box = hero.querySelector('.hero__text'); if (box) layers.push({ el: box, root: hero, d: -0.07 });
+  var qp = document.getElementById('q-phone'), qe = document.getElementById('q-email');
+  function eitherOne() { var none = !qp.value.trim() && !qe.value.trim(); qp.required = none; qe.required = none; if (!none) [qp, qe].forEach(function (el) { if (el.checkValidity()) { el.removeAttribute('aria-invalid'); var er = document.getElementById(el.id + '-err'); if (er) er.hidden = true; } }); }
+  if (qp && qe) { qp.addEventListener('input', eitherOne); qe.addEventListener('input', eitherOne); eitherOne(); }
   var ba = document.getElementById('ba');
   if (ba) { var rng = ba.querySelector('input'); rng.addEventListener('input', function () { ba.style.setProperty('--pos', rng.value + '%'); }); }
   [].forEach.call(document.querySelectorAll('img[data-depth]'), function (el) { layers.push({ el: el, root: el.parentElement, d: parseFloat(el.dataset.depth) }); });
@@ -388,7 +440,7 @@
   var groups = [
     ['.section-head > p', ''], ['#services .rows > li', 'left'], ['#recent .tiles > figure', ''],
     ['.facts > div', 'left'], ['.faq__item', 'right'], ['#reviews .quote', ''], ['#reviews .rows > li', 'left'],
-    ['.closing__cta p', ''], ['.closing__cta .btn', 'right'], ['.closing__links .grid > div', '']
+    ['#quote .field', ''], ['.closing__cta p', ''], ['.closing__cta .btn', 'right'], ['.closing__links .grid > div', '']
   ];
   var items = [];
   groups.forEach(function (g) {
