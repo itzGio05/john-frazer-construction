@@ -46,7 +46,6 @@
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
-<link rel="modulepreload" href="assets/moments/pinned-chapters/moment.js">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -103,8 +102,9 @@
   #reviews .quote { margin: 0 0 var(--s-6); }
   #reviews .rows { margin-bottom: var(--s-5); }
   /* recent work: six photographs from the business's Facebook page */
-  #recent .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5); }
-  #recent .tiles figure { margin: 0; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--r-lg); background: var(--p-surface); }
+  #recent .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-5); }
+  @media (max-width: 1023px) { #recent .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  #recent .tiles figure { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--r-lg); background: var(--p-surface); }
   #recent .tiles img { display: block; width: 100%; height: 100%; object-fit: cover; transition: scale .7s cubic-bezier(.2,.7,.2,1); }
   #recent .tiles figure:hover img { scale: 1.05; }
   @media (max-width: 639px) { #recent .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-3); } }
@@ -151,7 +151,7 @@
     <a class="nav__logo" href="#top"><span class="mark" data-mark="arc" aria-hidden="true"></span>John Frazer Construction</a>
     <nav class="nav__links" aria-label="Main">
       <div class="nav__item"><a class="nav__link" href="#services">Services</a></div>
-      <div class="nav__item"><a class="nav__link" href="#work">Work</a></div>
+      <div class="nav__item"><a class="nav__link" href="#recent">Work</a></div>
       <div class="nav__item"><a class="nav__link" href="#questions">Questions</a></div>
       <div class="nav__item"><a class="nav__link" href="#reviews">Reviews</a></div>
     </nav>
@@ -174,7 +174,7 @@
       <div class="hero__text">
         <h1 id="hero-h">Building contractor in Co. Laois</h1>
         <p class="hero__lead">John Frazer builds new homes and extensions around Portlaoise, with ground work, plastering and insurance claims. Rated 5.0 from 6 reviews on Google. Ring 087 236 7537.</p>
-        <div class="btn-row"><a class="btn btn--primary" href="tel:+353872367537">Call John</a><a class="btn btn--secondary" href="#work">See the work</a></div>
+        <div class="btn-row"><a class="btn btn--primary" href="tel:+353872367537">Call John</a><a class="btn btn--secondary" href="#recent">See the work</a></div>
       </div>
       <button class="loop-pause" type="button" id="heroPause" aria-label="Pause the film" aria-pressed="false"><svg class="ic-pause" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 2h3v10H3zM8 2h3v10H8z"/></svg><svg class="ic-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 1.800v10.400L12 7z"/></svg></button>
     </div></div>
@@ -195,33 +195,7 @@
           <li><span class="rows__name"><a href="insurance-claims.html">Insurance claims</a><small>Building work carried out under an insurance claim.</small></span></li>
         </ul>
       </div>
-      <figure class="frame frame--photo span-6 start-7"><img class="frame__img" data-depth="0.06" src="media/stonework-detail.webp" alt="Coursed stonework with red brick around a first-floor window" width="1100" height="825" loading="lazy" data-source="client" data-subject="stone and brick gable close up"></figure>
-    </div>
-  </section>
-
-  <section class="section" id="work" style="--h: 2" data-moment="pinned-chapters" aria-labelledby="work-h">
-    <div class="wrap mo-pc__grid">
-      <div class="mo-pc__text">
-        <h2 id="work-h">How a house goes up</h2>
-        <ol class="mo-pc__steps">
-          <li class="mo-pc__step">
-            <h3>House walls rendered, roof on</h3>
-            <p>The blockwork is rendered and the roof is on while the scaffold still stands.</p>
-            <figure class="mo-pc__visual"><img src="media/house-scaffold.webp" srcset="media/house-scaffold-900.webp 900w, media/house-scaffold.webp 1500w" sizes="(max-width: 639px) 92vw, 50vw" alt="A rendered gable and dormer behind scaffolding" width="1500" height="940" loading="lazy" data-source="client" data-subject="house under scaffold"></figure>
-          </li>
-          <li class="mo-pc__step">
-            <h3>House windows, sills and paths</h3>
-            <p>Sills, gutters and downpipes go on, and the paths are poured around the house.</p>
-            <figure class="mo-pc__visual"><img src="media/house-rendered.webp" srcset="media/house-rendered-900.webp 900w, media/house-rendered.webp 1600w" sizes="(max-width: 639px) 92vw, 50vw" alt="A rendered two-storey house with cream windows and a dark tiled roof" width="1600" height="1200" loading="lazy" data-source="client" data-subject="rendered house"></figure>
-          </li>
-          <li class="mo-pc__step">
-            <h3>Stone on the house gable</h3>
-            <p>Limestone is laid across the gable, with arched windows set in the render beside it.</p>
-            <figure class="mo-pc__visual"><img src="media/house-limestone-gable.webp" srcset="media/house-limestone-gable-900.webp 900w, media/house-limestone-gable.webp 1489w" sizes="(max-width: 639px) 92vw, 50vw" alt="A house with a dark limestone gable, arched windows and a green front door" width="1489" height="1012" loading="lazy" data-source="client" data-subject="limestone gable house"></figure>
-          </li>
-        </ol>
-      </div>
-      <div class="mo-pc__visuals frame"></div>
+      <figure class="frame frame--photo span-6 start-7"><img class="frame__img" data-depth="0.06" src="media/hq-modern-gable.webp" alt="A finished house with a stone gable and a glazed gable, seen from its driveway" width="1100" height="1100" loading="lazy" data-source="client" data-subject="modern stone gable house"></figure>
     </div>
   </section>
 
@@ -229,15 +203,17 @@
     <div class="wrap">
       <div class="section-head">
         <h2 id="recent-h">Recent houses and sites</h2>
-        <p>A new home finished in November 2026, and ground work under way on the next.</p>
+        <p>Finished homes from John's Facebook page and Google listing, and ground work under way on the next.</p>
       </div>
       <div class="tiles">
-        <figure><img src="media/recent-1.webp" alt="A finished white bungalow with a grey tiled roof and a detached garage" width="590" height="443" loading="lazy" data-source="client" data-subject="finished bungalow"></figure>
-        <figure><img src="media/recent-2.webp" alt="A white single-storey house with a corner window under a dark sky" width="590" height="443" loading="lazy" data-source="client" data-subject="finished house, front"></figure>
-        <figure><img src="media/recent-3.webp" alt="The corner window and L-shaped plan of a newly plastered house" width="590" height="443" loading="lazy" data-source="client" data-subject="plastered house"></figure>
-        <figure><img src="media/recent-4.webp" alt="The rear of a white bungalow with its gable and flat-roofed wing" width="590" height="443" loading="lazy" data-source="client" data-subject="bungalow rear"></figure>
-        <figure><img src="media/recent-5.webp" alt="The side of a new house with its detached garage behind" width="590" height="443" loading="lazy" data-source="client" data-subject="house and garage"></figure>
-        <figure><img src="media/recent-6.webp" alt="An excavator and a tractor with a trailer clearing a site for a new build" width="590" height="443" loading="lazy" data-source="client" data-subject="ground work"></figure>
+        <figure><img src="media/hq-two-storey.webp" alt="A finished two-storey white house with a dark hipped roof and a green front door" width="1200" height="900" loading="lazy" data-source="client" data-subject="two-storey house"></figure>
+        <figure><img src="media/hq-bungalow.webp" alt="A white single-storey house with a corner window under a big cloudy sky" width="1200" height="900" loading="lazy" data-source="client" data-subject="white bungalow"></figure>
+        <figure><img src="media/hq-yellow-door.webp" alt="A two-storey white house with a chimney and a yellow front door" width="1200" height="900" loading="lazy" data-source="client" data-subject="house with yellow door"></figure>
+        <figure><img src="media/hq-grey-houses.webp" alt="Two grey rendered houses beside a newly laid tarmac yard" width="1200" height="900" loading="lazy" data-source="client" data-subject="grey rendered houses"></figure>
+        <figure><img src="media/house-stone-brick-900.webp" alt="A two-storey house with stone gables, red brick surrounds and a red front door" width="900" height="675" loading="lazy" data-source="client" data-subject="stone and brick house"></figure>
+        <figure><img src="media/house-limestone-gable-900.webp" alt="A house with a dark limestone gable, arched windows and a green front door" width="900" height="612" loading="lazy" data-source="client" data-subject="limestone gable house"></figure>
+        <figure><img src="media/house-rendered-900.webp" alt="A rendered two-storey house with cream windows and a dark tiled roof" width="900" height="675" loading="lazy" data-source="client" data-subject="rendered house"></figure>
+        <figure><img src="media/hq-groundwork.webp" alt="An excavator digging out a site for a new build" width="1200" height="900" loading="lazy" data-source="client" data-subject="ground work"></figure>
       </div>
     </div>
   </section>
@@ -324,7 +300,7 @@
           <a class="nav__logo" href="#top"><span class="mark" data-mark="arc" aria-hidden="true"></span>John Frazer Construction</a>
           <p class="footer__lede">Building contractor in Portlaoise, Co. Laois. Also trading as John Frazer Building Contractor.</p>
         </div>
-        <div class="span-2 start-7 footer__col"><h3>Page</h3><ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#recent">Recent</a></li><li><a href="#questions">Questions</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
+        <div class="span-2 start-7 footer__col"><h3>Page</h3><ul><li><a href="#services">Services</a></li><li><a href="#recent">Work</a></li><li><a href="#start-finish">Before and after</a></li><li><a href="#questions">Questions</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
         <div class="span-2 footer__col"><h3>More</h3><ul><li><a href="portlaoise.html">Builder in Portlaoise</a></li><li><a href="mountmellick.html">Builder for Mountmellick</a></li><li><a href="https://www.facebook.com/JohnFrazerConstruction/" target="_blank" rel="noopener">Facebook page</a></li><li><a href="mailto:johnfrazerconstruction@gmail.com">Email John</a></li><li><a href="llms.txt">Facts for AI assistants</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Legal</h3><ul><li><a href="privacy.html">Privacy and cookies</a></li><li><a href="privacy.html#terms">Terms of use</a></li></ul></div>
       </div>

@@ -11,7 +11,7 @@
 
 ## Pages
 
-- [Home](https://itzgio05.github.io/john-frazer-construction/): services, stages of a build, recent work, questions, customer reviews
+- [Home](https://itzgio05.github.io/john-frazer-construction/): services, recent work, a before and after, questions, customer reviews
 - [New homes in Portlaoise, Co. Laois](https://itzgio05.github.io/john-frazer-construction/new-homes.html)
 - [House extensions in Portlaoise, Co. Laois](https://itzgio05.github.io/john-frazer-construction/extensions.html)
 - [Ground work in Co. Laois](https://itzgio05.github.io/john-frazer-construction/ground-work.html)
